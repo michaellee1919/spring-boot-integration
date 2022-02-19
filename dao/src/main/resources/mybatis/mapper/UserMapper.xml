@@ -13,7 +13,7 @@
     <select id="getAll" resultMap="BaseResultMap">
         SELECT
         <include refid="Base_Column_List" />
-        FROM users
+        FROM user
     </select>
 
     <select id="getOne" parameterType="java.lang.Long" resultMap="BaseResultMap" >
