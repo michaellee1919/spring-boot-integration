@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.zimu.boot.integration</groupId>
+        <artifactId>boot-integration</artifactId>
+        <version>${revision}</version>
+    </parent>
+
+    <artifactId>boot-integration-web</artifactId>
+    <version>${revision}</version>
+    <packaging>jar</packaging>
+
+    <name>boot-integration-web</name>
+    <description>boot integration web</description>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.zimu.boot.integration</groupId>
+            <artifactId>boot-integration-service</artifactId>
+            <version>${revision}</version>
+        </dependency>
+    </dependencies>
+
+</project>
