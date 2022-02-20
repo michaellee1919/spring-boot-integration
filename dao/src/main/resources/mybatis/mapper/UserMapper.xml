@@ -16,29 +16,31 @@
         FROM user
     </select>
 
-    <select id="getOne" parameterType="java.lang.Long" resultMap="BaseResultMap" >
+    <select id="getOne" parameterType="java.lang.Long" resultMap="BaseResultMap">
         SELECT
         <include refid="Base_Column_List" />
         FROM user
         WHERE id = #{id}
     </select>
 
-    <insert id="insert" parameterType="com.zimu.boot.integration.common.model.User" >
+    <insert id="insert" parameterType="com.zimu.boot.integration.common.model.User">
         INSERT INTO user(name) VALUES(#{name})
     </insert>
 
-    <update id="update" parameterType="com.zimu.boot.integration.common.model.User" >
+    <update id="update" parameterType="com.zimu.boot.integration.common.model.User">
         UPDATE
         user
         SET
-        <if test="name != null">userName = #{name},</if>
+        <if test="name != null">name = #{name},</if>
         WHERE
         id = #{id}
     </update>
 
-    <delete id="delete" parameterType="java.lang.Long" >
-        DELETE FROM
+    <delete id="delete" parameterType="java.lang.Long">
+        UPDATE
         user
+        SET
+        is_deleted = 1
         WHERE
         id =#{id}
     </delete>

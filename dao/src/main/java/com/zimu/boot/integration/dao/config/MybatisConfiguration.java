@@ -5,5 +5,5 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 @MapperScan(basePackages = {"com.zimu.boot.integration.dao.mapper"})
-public class DataSourceConfiguration {
+public class MybatisConfiguration {
 }
