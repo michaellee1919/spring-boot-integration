@@ -13,23 +13,23 @@
     <select id="getAll" resultMap="BaseResultMap">
         SELECT
         <include refid="Base_Column_List" />
-        FROM user
+        FROM users
     </select>
 
     <select id="getOne" parameterType="java.lang.Long" resultMap="BaseResultMap">
         SELECT
         <include refid="Base_Column_List" />
-        FROM user
+        FROM users
         WHERE id = #{id}
     </select>
 
     <insert id="insert" parameterType="com.zimu.boot.integration.common.model.User">
-        INSERT INTO user(name) VALUES(#{name})
+        INSERT INTO users(name) VALUES(#{name})
     </insert>
 
     <update id="update" parameterType="com.zimu.boot.integration.common.model.User">
         UPDATE
-        user
+        users
         SET
         <if test="name != null">name = #{name},</if>
         WHERE
@@ -38,7 +38,7 @@
 
     <delete id="delete" parameterType="java.lang.Long">
         UPDATE
-        user
+        users
         SET
         is_deleted = 1
         WHERE
