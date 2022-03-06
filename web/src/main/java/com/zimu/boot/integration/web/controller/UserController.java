@@ -34,10 +34,10 @@ public class UserController {
         return userService.getOne(id);
     }
 
-    @RequestMapping(value = "/insert", method = RequestMethod.PUT)
+    @RequestMapping(value = "/add", method = RequestMethod.PUT)
     @ApiOperation(value = "获取所有用户", notes="获取所有用户")
     public void insert(@RequestBody User user) {
-        userService.insert(user);
+        userService.add(user);
     }
 
     @RequestMapping(value = "/update", method = RequestMethod.POST)
