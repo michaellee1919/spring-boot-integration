@@ -29,6 +29,10 @@ public class RedisConfig {
             return node.startsWith("redis://") ? node : "redis://" + node;
         }
 
+        private int getProcessors() {
+            return Runtime.getRuntime().availableProcessors();
+        }
+
         /**
          * 单机模式 redisson 客户端
          */
@@ -49,6 +53,8 @@ public class RedisConfig {
                     .setIdleConnectionTimeout(redisProperties.getPool().getIdleConnTimeout())
                     .setConnectionPoolSize(redisProperties.getSingle().getConnPoolSize())
                     .setConnectionMinimumIdleSize(redisProperties.getSingle().getConnMinIdle());
+            config.setNettyThreads(2 * getProcessors());
+            config.setCodec(redisProperties.getCodec());
             return Redisson.create(config);
         }
 
@@ -79,6 +85,8 @@ public class RedisConfig {
                     .setSlaveConnectionPoolSize(redisProperties.getMs().getSlaveConnPoolSize())
                     .setSlaveConnectionMinimumIdleSize(redisProperties.getMs().getSlaveConnMinIdleSize())
                     .setScanInterval(redisProperties.getCluster().getScanInterval());
+            config.setNettyThreads(2 * getProcessors());
+            config.setCodec(redisProperties.getCodec());
             return Redisson.create(config);
         }
 
@@ -109,6 +117,8 @@ public class RedisConfig {
                     .setSlaveConnectionMinimumIdleSize(redisProperties.getMs().getSlaveConnMinIdleSize())
                     .setMasterName(redisProperties.getSentinel().getMaster())
                     .setScanInterval(redisProperties.getSentinel().getScanInterval());
+            config.setNettyThreads(2 * getProcessors());
+            config.setCodec(redisProperties.getCodec());
             return Redisson.create(config);
         }
     }

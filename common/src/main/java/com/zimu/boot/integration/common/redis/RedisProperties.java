@@ -2,6 +2,7 @@ package com.zimu.boot.integration.common.redis;
 
 import lombok.Data;
 import lombok.ToString;
+import org.redisson.client.codec.Codec;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
 @ConfigurationProperties(prefix = "spring.redis")
@@ -20,6 +21,8 @@ public class RedisProperties {
     private int retryAttempts;
 
     private int retryInterval;
+
+    private Codec codec;
 
     /**
      * 池配置

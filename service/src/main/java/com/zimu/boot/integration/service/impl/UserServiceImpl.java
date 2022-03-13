@@ -19,7 +19,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public List<User> getAll() {
-        PageHelper.startPage(1, 1);
+        PageHelper.startPage(1, 10);
         return userMapper.getAll();
     }
 

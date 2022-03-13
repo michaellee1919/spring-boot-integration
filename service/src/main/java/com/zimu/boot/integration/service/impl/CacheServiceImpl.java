@@ -4,9 +4,6 @@ import com.zimu.boot.integration.service.CacheService;
 import org.redisson.api.RedissonClient;
 import org.springframework.stereotype.Service;
 
-import java.util.HashMap;
-import java.util.Map;
-
 @Service
 public class CacheServiceImpl implements CacheService {
 
@@ -18,13 +15,11 @@ public class CacheServiceImpl implements CacheService {
 
     @Override
     public void put(String key, Object value) {
-        Map<String, Object> buckets = new HashMap<>(1);
-        buckets.put(key, value);
-        redisson.getBuckets().set(buckets);
+        redisson.getBucket(key).set(value);
     }
 
     @Override
     public Object gey(String key) {
-        return redisson.getBuckets().get(key);
+        return redisson.getBucket(key).get();
     }
 }
